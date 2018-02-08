@@ -27,14 +27,24 @@ public class TopicsController {
 		return topicService.getTopic(id);
 	}
 	
+	
+	//RESTful POST API
 	@RequestMapping(method=RequestMethod.POST, value="/topics")
 	public void addTopic(@RequestBody Topic topic) {
 		topicService.addTopic(topic);
 	}
 	
+	//RESTful PUT API
 	@RequestMapping(method=RequestMethod.PUT, value="/topics/{id}")
 	public void updateTopic(@RequestBody Topic topic, @PathVariable String id) {
 		topicService.updateTopic(topic, id);
+		
+	}
+	
+	//RESTful DELETE API
+	@RequestMapping(method=RequestMethod.DELETE, value="/topics/{id}")
+	public void deleteTopic(@PathVariable String id) {
+		topicService.deleteTopic(id);
 		
 	}
 	
